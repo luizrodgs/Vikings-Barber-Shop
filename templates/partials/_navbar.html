@@ -1,0 +1,74 @@
+{% load static %}
+
+<header>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/static/img/transparent.png" alt="logo" width="250" height="90">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Atendimentos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/atendimentos/dashboard">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/atendimentos/adicionar">Adicionar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agendamentos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/agendamentos/dashboard">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/agendamentos/adicionar">Adicionar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Clientes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/clientes/dashboard">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/clientes/adicionar">Cadastrar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Barbeiros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/barbeiros/dashboard">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/barbeiros/adicionar">Cadastrar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Serviços
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/servicos/dashboard">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/servicos/adicionar">Adicionar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
