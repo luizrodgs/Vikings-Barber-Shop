@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<div class="receipe-content-area">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="receipe-headline my-5">
+                    <h2>Serviço: {{ service.service }}</h2>
+                    <div class="receipe-duration">
+                        <h6>Preço: R$ {{ service.price|floatformat:2 }}</h6>
+                    </div>
+                    <div>
+                        <h6 class="text-left mt-4"><a href="{% url 'edit_service' service.id %}" type="button"
+                                class="btn btn-warning">Editar</a></h6>
+                        <h6 class="text-left"><a href="{% url 'delete_service' service.id %}" type="button"
+                                class="btn btn-danger">Deletar</a></h6>
+                    </div>
+                </div>
+            </div>
+
+            {% endblock %}

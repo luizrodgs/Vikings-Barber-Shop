@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Adicionar Serviço</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'create_service' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="service_service"><b>Serviço</b></label>
+                                <input type="text" id="service_service" class="form-control" name="service_service"
+                                    placeholder="Ex: Corte" value="{{service.service}}" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="service_price"><b>Preço</b></label>
+                                <input type="text" id="service_price" class="form-control" name="service_price"
+                                    placeholder="Ex: 20,00" value="{{service.price}}" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">Adicionar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
