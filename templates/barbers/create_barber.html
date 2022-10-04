@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Cadastrar Barbeiro</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'create_barber' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="barber_name"><b>Nome</b></label>
+                                <input type="text" id="barber_name" class="form-control" name="barber_name"
+                                    placeholder="Ex: Bruno Silva" value="{{barber.name}}" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="barber_cpf"><b>CPF</b></label>
+                                <input type="text" id="barber_cpf" class="form-control" name="barber_cpf"
+                                    placeholder="Ex: 11122233344" value="{{barber.cpf}}" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

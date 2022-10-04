@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h3>Editar Serviço</h3>
+                    <h3>Editar Barbeiro</h3>
                 </div>
             </div>
         </div>
@@ -18,20 +18,20 @@
             <div class="col-12">
                 <p>Todos os campos são obrigatórios</p>
                 <div class="contact-form-area">
-                    <form action="{% url 'update_service' %}" method="post" enctype="multipart/form-data">
+                    <form action="{% url 'update_barber' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <input type="text" id="service_id" class="form-control" name="service_id" value="{{service.id}}"
+                        <input type="text" id="barber_id" class="form-control" name="barber_id" value="{{barber.id}}"
                             hidden>
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <label for="service_service"><b>Serviço</b></label>
-                                <input type="text" id="service_service" class="form-control" name="service_service"
-                                    placeholder="Ex: Corte" value="{{service.service}}" required>
+                                <label for="barber_name"><b>Barbeiro</b></label>
+                                <input type="text" id="barber_name" class="form-control" name="barber_name"
+                                    placeholder="Ex: Bruno Silva" value="{{barber.name}}" required>
                             </div>
                             <div class="col-12">
-                                <label for="service_price"><b>Preço</b></label>
-                                <input type="number" id="service_price" class="form-control" name="service_price"
-                                    placeholder="Ex: 20,00" value="{{service.price}}" required>
+                                <label for="barber_price"><b>CPF</b></label>
+                                <input type="text" id="barber_cpf" class="form-control" name="barber_cpf"
+                                    placeholder="Ex: 000.111.222.333-44" value="{{barber.cpf}}" required>
                             </div>
                             <div class="col-12 text-center">
                                 <button class="btn btn-success" type="submit">Salvar</button>
