@@ -10,10 +10,10 @@ from .views import (
 )
 
 urlpatterns = [
+    path("<int:barber_cpf>", get_barber, name="get_barber"),
     path("dashboard/", barber_dashboard, name="barber_dashboard"),
-    path("<int:barber_id>", get_barber, name="get_barber"),
     path("cadastrar/", create_barber, name="create_barber"),
-    path("editar/<int:barber_id>", edit_barber, name="edit_barber"),
+    path("editar/<int:barber_cpf>", edit_barber, name="edit_barber"),
     path("atualizar", update_barber, name="update_barber"),
-    path("deletar/<int:barber_id>", delete_barber, name="delete_barber"),
+    path("deletar/<int:barber_cpf>", delete_barber, name="delete_barber"),
 ]

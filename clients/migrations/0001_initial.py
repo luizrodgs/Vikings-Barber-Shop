@@ -12,10 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Barber',
+            name='Client',
             fields=[
                 ('name', models.CharField(max_length=50)),
                 ('cpf', models.CharField(max_length=11, primary_key=True, serialize=False)),
+                ('phone', models.CharField(max_length=11)),
             ],
         ),
     ]

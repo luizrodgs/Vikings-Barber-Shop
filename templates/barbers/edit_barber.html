@@ -20,7 +20,7 @@
                 <div class="contact-form-area">
                     <form action="{% url 'update_barber' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <input type="text" id="barber_id" class="form-control" name="barber_id" value="{{barber.id}}"
+                        <input type="text" id="barber_cpf" class="form-control" name="barber_cpf" value="{{barber.cpf}}"
                             hidden>
                         <div class="row">
                             <div class="col-12 col-lg-12">
@@ -29,7 +29,7 @@
                                     placeholder="Ex: Bruno Silva" value="{{barber.name}}" required>
                             </div>
                             <div class="col-12">
-                                <label for="barber_price"><b>CPF</b></label>
+                                <label for="barber_cpf"><b>CPF</b></label>
                                 <input type="text" id="barber_cpf" class="form-control" name="barber_cpf"
                                     placeholder="Ex: 000.111.222.333-44" value="{{barber.cpf}}" required>
                             </div>

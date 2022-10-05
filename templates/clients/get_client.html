@@ -10,14 +10,17 @@
         <div class="row">
             <div class="col-12 col-md-8">
                 <div class="receipe-headline my-5">
-                    <h2>Barbeiro: {{ barber.name }}</h2>
+                    <h2>Cliente: {{ client.name }}</h2>
                     <div class="receipe-duration">
-                        <h6>CPF: {{ barber.cpf }}</h6>
+                        <h6>CPF: {{ client.cpf }}</h6>
+                    </div>
+                    <div class="receipe-duration">
+                        <h6>Telefone: {{ client.phone }}</h6>
                     </div>
                     <div>
-                        <h6 class="text-left mt-4"><a href="{% url 'edit_barber' barber.cpf %}" type="button"
+                        <h6 class="text-left mt-4"><a href="{% url 'edit_client' client.cpf %}" type="button"
                                 class="btn btn-warning">Editar</a></h6>
-                        <h6 class="text-left"><a href="{% url 'delete_barber' barber.cpf %}" type="button"
+                        <h6 class="text-left"><a href="{% url 'delete_client' client.cpf %}" type="button"
                                 class="btn btn-danger">Deletar</a></h6>
                     </div>
                 </div>

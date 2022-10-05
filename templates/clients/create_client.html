@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Cadastrar Cliente</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'create_client' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="client_name"><b>Nome</b></label>
+                                <input type="text" id="client_name" class="form-control" name="client_name"
+                                    placeholder="Ex: Bruno Silva" value="{{client.name}}" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="client_cpf"><b>CPF</b></label>
+                                <input type="text" id="client_cpf" class="form-control" name="client_cpf"
+                                    placeholder="Ex: 11122233344" value="{{client.cpf}}" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="client_phone"><b>Telefone</b></label>
+                                <input type="text" id="client_phone" class="form-control" name="client_phone"
+                                    placeholder="Ex: 91985543322" value="{{client.phone}}" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
