@@ -26,11 +26,11 @@
                     <tbody>
                         {% for barber in barbers %}
                         <tr>
-                            <td><a href="{% url 'get_barber' barber.cpf %}">{{ barber.name }}</a></td>
+                            <td><a href="{% url 'get_barber' barber.id %}">{{ barber.name }}</a></td>
                             <td>{{ barber.cpf }}</td>
-                            <td class="text-center"><a href="{% url 'edit_barber' barber.cpf %}" type="button"
+                            <td class="text-center"><a href="{% url 'edit_barber' barber.id %}" type="button"
                                     class="btn btn-warning">Editar</a></td>
-                            <td class="text-center"><a href="{% url 'delete_barber' barber.cpf %}" type="button"
+                            <td class="text-center"><a href="{% url 'delete_barber' barber.id %}" type="button"
                                     class="btn btn-danger">Deletar</a></td>
                         </tr>
             </div>

@@ -15,9 +15,9 @@
                         <h6>CPF: {{ barber.cpf }}</h6>
                     </div>
                     <div>
-                        <h6 class="text-left mt-4"><a href="{% url 'edit_barber' barber.cpf %}" type="button"
+                        <h6 class="text-left mt-4"><a href="{% url 'edit_barber' barber.id %}" type="button"
                                 class="btn btn-warning">Editar</a></h6>
-                        <h6 class="text-left"><a href="{% url 'delete_barber' barber.cpf %}" type="button"
+                        <h6 class="text-left"><a href="{% url 'delete_barber' barber.id %}" type="button"
                                 class="btn btn-danger">Deletar</a></h6>
                     </div>
                 </div>

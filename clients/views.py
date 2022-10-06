@@ -13,8 +13,8 @@ def client_dashboard(request):
     return render(request, "clients/client_dashboard.html", package)
 
 
-def get_client(request, client_cpf):
-    client = get_object_or_404(Client, pk=client_cpf)
+def get_client(request, client_id):
+    client = get_object_or_404(Client, pk=client_id)
     client_to_show = {"client": client}
     return render(request, "clients/get_client.html", client_to_show)
 
@@ -33,22 +33,22 @@ def create_client(request):
         return render(request, "clients/create_client.html")
 
 
-def delete_client(request, client_cpf):
-    client = get_object_or_404(Client, pk=client_cpf)
+def delete_client(request, client_id):
+    client = get_object_or_404(Client, pk=client_id)
     client.delete()
     return redirect("client_dashboard")
 
 
-def edit_client(request, client_cpf):
-    client = get_object_or_404(Client, pk=client_cpf)
+def edit_client(request, client_id):
+    client = get_object_or_404(Client, pk=client_id)
     client_to_edit = {"client": client}
     return render(request, "clients/edit_client.html", client_to_edit)
 
 
 def update_client(request):
     if request.method == "POST":
-        client_cpf = request.POST["client_cpf"]
-        client = Client.objects.get(pk=client_cpf)
+        client_id = request.POST["client_id"]
+        client = Client.objects.get(pk=client_id)
         client.name = request.POST["client_name"]
         client.cpf = request.POST["client_cpf"]
         client.phone = request.POST["client_phone"]

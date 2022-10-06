@@ -27,12 +27,12 @@
                     <tbody>
                         {% for client in clients %}
                         <tr>
-                            <td><a href="{% url 'get_client' client.cpf %}">{{ client.name }}</a></td>
+                            <td><a href="{% url 'get_client' client.id %}">{{ client.name }}</a></td>
                             <td>{{ client.cpf }}</td>
                             <td>{{ client.phone }}</td>
-                            <td class="text-center"><a href="{% url 'edit_client' client.cpf %}" type="button"
+                            <td class="text-center"><a href="{% url 'edit_client' client.id %}" type="button"
                                     class="btn btn-warning">Editar</a></td>
-                            <td class="text-center"><a href="{% url 'delete_client' client.cpf %}" type="button"
+                            <td class="text-center"><a href="{% url 'delete_client' client.id %}" type="button"
                                     class="btn btn-danger">Deletar</a></td>
                         </tr>
             </div>

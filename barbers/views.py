@@ -13,8 +13,8 @@ def barber_dashboard(request):
     return render(request, "barbers/barber_dashboard.html", package)
 
 
-def get_barber(request, barber_cpf):
-    barber = get_object_or_404(barber, pk=barber_cpf)
+def get_barber(request, barber_id):
+    barber = get_object_or_404(Barber, pk=barber_id)
     barber_to_show = {"barber": barber}
     return render(request, "barbers/get_barber.html", barber_to_show)
 
@@ -30,22 +30,22 @@ def create_barber(request):
         return render(request, "barbers/create_barber.html")
 
 
-def delete_barber(request, barber_cpf):
-    barber = get_object_or_404(Barber, pk=barber_cpf)
+def delete_barber(request, barber_id):
+    barber = get_object_or_404(Barber, pk=barber_id)
     barber.delete()
     return redirect("barber_dashboard")
 
 
-def edit_barber(request, barber_cpf):
-    barber = get_object_or_404(Barber, pk=barber_cpf)
+def edit_barber(request, barber_id):
+    barber = get_object_or_404(Barber, pk=barber_id)
     barber_to_edit = {"barber": barber}
     return render(request, "barbers/edit_barber.html", barber_to_edit)
 
 
 def update_barber(request):
     if request.method == "POST":
-        barber_cpf = request.POST["barber_cpf"]
-        barber = Barber.objects.get(pk=barber_cpf)
+        barber_id = request.POST["barber_id"]
+        barber = Barber.objects.get(pk=barber_id)
         barber.name = request.POST["barber_name"]
         barber.cpf = request.POST["barber_cpf"]
         barber.save()
