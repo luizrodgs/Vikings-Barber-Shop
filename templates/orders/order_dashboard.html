@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<section class="best-receipe-area">
+    <div class="container mt-4">
+        <div class="row">
+            <h1 class="text-center">Atendimentos</h1>
+            <div>
+                <div class="m-2">
+                    <a href="{% url 'create_order' %}" type="button" class="btn btn-info">Adicionar Atendimento</a></td>
+                </div>
+                {% if orders %}
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Atendimento</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Barbeiro</th>
+                            <th scope="col">Serviço</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.client }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.barber }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.service }}</a></td>
+                            <td class="text-center"><a href="{% url 'edit_order' order.id %}" type="button"
+                                    class="btn btn-warning">Editar</a></td>
+                            <td class="text-center"><a href="{% url 'delete_order' order.id %}" type="button"
+                                    class="btn btn-danger">Deletar</a></td>
+                        </tr>
+            </div>
+            {% endfor %}
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

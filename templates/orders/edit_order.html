@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<div class="contact-area section-padding">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Editar Atendimento</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'update_order' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" id="order_id" class="form-control" name="order_id" value="{{order.id}}"
+                            hidden>
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="order_client"><b>Cliente</b></label>
+                                <input type="text" id="order_client" class="form-control" name="order_client"
+                                    value="{{order.client}}" required>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <label for="order_barber"><b>Barbeiro</b></label>
+                                <input type="text" id="order_barber" class="form-control" name="order_barber"
+                                    value="{{order.barber}}" required>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <label for="order_service"><b>Serviço</b></label>
+                                <input type="text" id="order_service" class="form-control" name="order_service"
+                                    value="{{order.service}}" required>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn btn-success" type="submit">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
