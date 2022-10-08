@@ -31,4 +31,4 @@ no objetivo, o foco no primeiro momento é no funcionamento mais básico e cruci
 Usarei no projeto recursos de Banco de Dados Relacionais para obter dados cruzados entre as tabelas. Essa tarefa
 será executada com auxílio do DjangoORM, que possui funcionamento exemplar com o Banco de Dados escolhido.
 
-[![Modelagem](https://user-images.githubusercontent.com/101483219/194727283-bc2dd064-50e4-492c-933b-961dcc872fb1.png)](https://user-images.githubusercontent.com/101483219/193663105-c06e2a64-19f4-45c5-9893-60e8618e0374.png)
+[![Modelagem](https://user-images.githubusercontent.com/101483219/194727283-bc2dd064-50e4-492c-933b-961dcc872fb1.png)](https://user-images.githubusercontent.com/101483219/194727283-bc2dd064-50e4-492c-933b-961dcc872fb1.png)
