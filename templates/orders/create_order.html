@@ -22,23 +22,38 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <label for="order_client"><b>Cliente</b></label>
-                                <input type="text" id="order_client" class="form-control" name="order_client"
-                                    value="{{order.client}}" required>
+                                {% if clients %}
+                                <label for="client">Cliente:</label>
+                                <select name="client" id="client">
+                                    {% for client in clients %}
+                                    <option value="{{ client.id }}">{{ client.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% else %}
+                                {% endif %}
                             </div>
-
-                            <div class="col-12 col-lg-12">
-                                <label for="order_barber"><b>Barbeiro</b></label>
-                                <input type="text" id="order_barber" class="form-control" name="order_barber"
-                                    value="{{order.barber}}" required>
+                            <div class="col-12 mt-4">
+                                {% if barbers %}
+                                <label for="barber">Barbeiro:</label>
+                                <select name="barber" id="barber">
+                                    {% for barber in barbers %}
+                                    <option value="{{ barber.id }}">{{ barber.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% else %}
+                                {% endif %}
                             </div>
-
-                            <div class="col-12 col-lg-12">
-                                <label for="order_service"><b>Serviço</b></label>
-                                <input type="text" id="order_service" class="form-control" name="order_service"
-                                    value="{{order.service}}" required>
+                            <div class="col-12 mt-4">
+                                {% if services %}
+                                <label for="service">Serviço:</label>
+                                <select name="service" id="service">
+                                    {% for service in services %}
+                                    <option value="{{ service.id }}">{{ service.service }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% else %}
+                                {% endif %}
                             </div>
-
                             <div class="col-12 text-center">
                                 <button class="btn delicious-btn mt-30" type="submit">Adicionar</button>
                             </div>

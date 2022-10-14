@@ -1,11 +1,13 @@
+from multiprocessing.connection import Client
+
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Order
+from .models import Barber, Client, Order, Service
 
 
 def order_dashboard(request):
-    orders = Order.objects.order_by("client")
+    orders = Order.objects.order_by("-id")
     paginator = Paginator(orders, 30)
     page = request.GET.get("page")
     orders_per_page = paginator.get_page(page)
@@ -21,16 +23,20 @@ def get_order(request, order_id):
 
 def create_order(request):
     if request.method == "POST":
-        order_client = request.POST["order_client"]
-        order_barber = request.POST["order_barber"]
-        order_service = request.POST["order_service"]
+        order_client = get_object_or_404(Client, pk=request.POST["client"])
+        order_barber = get_object_or_404(Barber, pk=request.POST["barber"])
+        order_service = get_object_or_404(Service, pk=request.POST["service"])
         order = Order.objects.create(
             client=order_client, barber=order_barber, service=order_service
         )
         order.save()
         return redirect("order_dashboard")
     else:
-        return render(request, "orders/create_order.html")
+        clients = Client.objects.all()
+        barbers = Barber.objects.all()
+        services = Service.objects.all()
+        package = {"clients": clients, "barbers": barbers, "services": services}
+        return render(request, "orders/create_order.html", package)
 
 
 def delete_order(request, order_id):
