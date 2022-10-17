@@ -10,9 +10,9 @@ from .views import (
 )
 
 urlpatterns = [
-    path("dashboard/", order_dashboard, name="order_dashboard"),
+    path("dashboard", order_dashboard, name="order_dashboard"),
     path("<int:order_id>", get_order, name="get_order"),
-    path("adicionar/", create_order, name="create_order"),
+    path("adicionar", create_order, name="create_order"),
     path("editar/<int:order_id>", edit_order, name="edit_order"),
     path("atualizar", update_order, name="update_order"),
     path("deletar/<int:order_id>", delete_order, name="delete_order"),
