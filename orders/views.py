@@ -46,9 +46,11 @@ def delete_order(request, order_id):
 
 
 def edit_order(request, order_id):
-    order = get_object_or_404(Order, pk=order_id)
-    order_to_edit = {"order": order}
-    return render(request, "orders/edit_order.html", order_to_edit)
+    clients = Client.objects.all()
+    barbers = Barber.objects.all()
+    services = Service.objects.all()
+    package = {"clients": clients, "barbers": barbers, "services": services}
+    return render(request, "orders/edit_order.html", package)
 
 
 def update_order(request):

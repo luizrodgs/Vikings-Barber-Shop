@@ -1,5 +1,9 @@
+from functools import total_ordering
+
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
+
+from orders.models import Order
 
 from .models import Client
 
@@ -15,8 +19,13 @@ def client_dashboard(request):
 
 def get_client(request, client_id):
     client = get_object_or_404(Client, pk=client_id)
-    client_to_show = {"client": client}
-    return render(request, "clients/get_client.html", client_to_show)
+    client_id = client.id
+    orders = Order.objects.filter(client=client_id)
+    total_orders = 0
+    for order in orders:
+        total_orders += 1
+    package = {"client": client, "orders": orders, "total_orders": total_orders}
+    return render(request, "clients/get_client.html", package)
 
 
 def create_client(request):

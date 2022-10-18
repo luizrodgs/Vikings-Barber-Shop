@@ -17,13 +17,37 @@
                     <div class="receipe-duration">
                         <h6>Telefone: {{ client.phone }}</h6>
                     </div>
-                    <div>
-                        <h6 class="text-left mt-4"><a href="{% url 'edit_client' client.id %}" type="button"
+                    <div class="row">
+                        <h6 class="text-left"><a href="{% url 'edit_client' client.id %}" type="button"
                                 class="btn btn-warning">Editar</a></h6>
                         <h6 class="text-left"><a href="{% url 'delete_client' client.id %}" type="button"
                                 class="btn btn-danger">Deletar</a></h6>
                     </div>
                 </div>
+
+                {% if orders %}
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="text-center">N°</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Barbeiro</th>
+                            <th scope="col">Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td class="text-center"><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.client }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.barber }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.service }}</a></td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+
+                        <h6>Total de atendimentos: {{ total_orders }}</h6>
             </div>
 
             {% endblock %}
