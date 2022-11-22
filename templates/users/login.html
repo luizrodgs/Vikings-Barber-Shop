@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+<section class="best-receipe-area">
+    <div class="container mt-4">
+        <div class="row">
+            <h1 class="text-center">Login</h1>
+            <form action="{% url 'index_login' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" id="email" class="form-control" name="email"
+                            placeholder="Entre com o email cadastrado">
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <label for="password"><b>Senha</b></label>
+                        <input id="password" type="password" class="form-control" name="password"
+                            placeholder="Digite aqui sua senha">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-success" type="submit">Acessar sua conta</button>
+                        <button type="button" class="btn btn-primary" onclick="showCreateAccount()">Ainda não tem
+                            conta? Clique aqui</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showCreateAccount() {
+            location.href = "{% url 'create_user' %}";
+        } 
+    </script>
+
+</section>
+
+{% endblock %}

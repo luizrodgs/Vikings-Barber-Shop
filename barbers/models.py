@@ -7,3 +7,7 @@ class Barber(models.Model):
 
     def __str__(self):
         return self.name
+
+    def show_cpf(self):
+        formattedCpf = f"{self.cpf[:3]}.{self.cpf[3:6]}.{self.cpf[6:9]}-{self.cpf[9:]}"
+        return formattedCpf

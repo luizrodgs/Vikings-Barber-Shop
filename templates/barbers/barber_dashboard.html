@@ -17,6 +17,7 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Barbeiro</th>
                             <th scope="col">CPF</th>
                             <th scope="col"></th>
@@ -26,8 +27,9 @@
                     <tbody>
                         {% for barber in barbers %}
                         <tr>
+                            <td><a href="{% url 'get_barber' barber.id %}">{{ barber.id }}</a></td>
                             <td><a href="{% url 'get_barber' barber.id %}">{{ barber.name }}</a></td>
-                            <td>{{ barber.cpf }}</td>
+                            <td>{{ barber.show_cpf }}</td>
                             <td class="text-center"><a href="{% url 'edit_barber' barber.id %}" type="button"
                                     class="btn btn-warning">Editar</a></td>
                             <td class="text-center"><a href="{% url 'delete_barber' barber.id %}" type="button"

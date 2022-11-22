@@ -17,7 +17,8 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" class="text-center">N°</th>
+                            <th scope="col">N°</th>
+                            <th scope="col">Data</th>
                             <th scope="col">Cliente</th>
                             <th scope="col">Barbeiro</th>
                             <th scope="col">Serviço</th>
@@ -28,7 +29,8 @@
                     <tbody>
                         {% for order in orders %}
                         <tr>
-                            <td class="text-center"><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.show_formatted_date }}</a></td>
                             <td><a href="{% url 'get_order' order.id %}">{{ order.client }}</a></td>
                             <td><a href="{% url 'get_order' order.id %}">{{ order.barber }}</a></td>
                             <td><a href="{% url 'get_order' order.id %}">{{ order.service }}</a></td>

@@ -17,6 +17,7 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Serviço</th>
                             <th scope="col">Preço</th>
                             <th scope="col"></th>
@@ -26,6 +27,7 @@
                     <tbody>
                         {% for service in services %}
                         <tr>
+                            <td><a href="{% url 'get_service' service.id %}">{{ service.id }}</a></td>
                             <td><a href="{% url 'get_service' service.id %}">{{ service.service }}</a></td>
                             <td>R$ {{ service.price|floatformat:2 }}</td>
                             <td class="text-center"><a href="{% url 'edit_service' service.id %}" type="button"

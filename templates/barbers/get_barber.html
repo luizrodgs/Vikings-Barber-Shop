@@ -12,7 +12,8 @@
                 <div class="receipe-headline my-5">
                     <h2>Barbeiro: {{ barber.name }}</h2>
                     <div class="receipe-duration">
-                        <h6>CPF: {{ barber.cpf }}</h6>
+                        <h6>ID: {{ barber.id }}</h6>
+                        <h6>CPF: {{ barber.show_cpf }}</h6>
                     </div>
                     <div>
                         <h6 class="text-left mt-4"><a href="{% url 'edit_barber' barber.id %}" type="button"
@@ -23,4 +24,28 @@
                 </div>
             </div>
 
-            {% endblock %}
+            {% if orders %}
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="text-center">N°</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Serviço</th>
+                        <th scope="col">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="text-center"><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
+                        <td><a href="{% url 'get_order' order.id %}">{{ order.client }}</a></td>
+                        <td><a href="{% url 'get_order' order.id %}">{{ order.service }}</a></td>
+                        <td><a href="{% url 'get_order' order.id %}">{{ order.show_formatted_date }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+
+                    <h6>Total de atendimentos: {{ total_orders }}</h6>
+
+                    {% endblock %}

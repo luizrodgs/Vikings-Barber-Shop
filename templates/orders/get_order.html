@@ -15,6 +15,7 @@
                         <h6>Cliente: {{ order.client }}</h6>
                         <h6>Barbeiro: {{ order.barber }}</h6>
                         <h6>Serviço: {{ order.service }}</h6>
+                        <h6>Data: {{ order.show_formatted_date }}</h6>
                     </div>
                     <div>
                         <h6 class="text-left mt-4"><a href="{% url 'edit_order' order.id %}" type="button"

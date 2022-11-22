@@ -17,6 +17,7 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">CPF</th>
                             <th scope="col">Telefone</th>
@@ -27,9 +28,10 @@
                     <tbody>
                         {% for client in clients %}
                         <tr>
+                            <td><a href="{% url 'get_client' client.id %}">{{ client.id }}</a></td>
                             <td><a href="{% url 'get_client' client.id %}">{{ client.name }}</a></td>
-                            <td>{{ client.cpf }}</td>
-                            <td>{{ client.phone }}</td>
+                            <td>{{ client.show_cpf }}</td>
+                            <td>{{ client.show_phone }}</td>
                             <td class="text-center"><a href="{% url 'edit_client' client.id %}" type="button"
                                     class="btn btn-warning">Editar</a></td>
                             <td class="text-center"><a href="{% url 'delete_client' client.id %}" type="button"

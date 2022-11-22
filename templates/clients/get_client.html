@@ -12,10 +12,11 @@
                 <div class="receipe-headline my-5">
                     <h2>Cliente: {{ client.name }}</h2>
                     <div class="receipe-duration">
-                        <h6>CPF: {{ client.cpf }}</h6>
+                        <h6>ID: {{ client.id }}</h6>
+                        <h6>CPF: {{ client.show_cpf }}</h6>
                     </div>
                     <div class="receipe-duration">
-                        <h6>Telefone: {{ client.phone }}</h6>
+                        <h6>Telefone: {{ client.show_phone }}</h6>
                     </div>
                     <div class="row">
                         <h6 class="text-left"><a href="{% url 'edit_client' client.id %}" type="button"
@@ -30,18 +31,18 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" class="text-center">N°</th>
-                            <th scope="col">Cliente</th>
                             <th scope="col">Barbeiro</th>
                             <th scope="col">Serviço</th>
+                            <th scope="col">Data</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for order in orders %}
                         <tr>
                             <td class="text-center"><a href="{% url 'get_order' order.id %}">{{ order.id }}</a></td>
-                            <td><a href="{% url 'get_order' order.id %}">{{ order.client }}</a></td>
                             <td><a href="{% url 'get_order' order.id %}">{{ order.barber }}</a></td>
                             <td><a href="{% url 'get_order' order.id %}">{{ order.service }}</a></td>
+                            <td><a href="{% url 'get_order' order.id %}">{{ order.show_formatted_date }}</a></td>
                         </tr>
                         {% endfor %}
                         {% else %}
