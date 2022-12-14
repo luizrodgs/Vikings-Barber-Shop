@@ -15,12 +15,6 @@ Para o desenvolvimento desse projeto, optei pela escolha das seguintes linguagen
 O objetivo do projeto foca na parte mais crucial da aplicação. Uma vez que esta alcance o status de
 concluída, novos objetivos de complexidade crescente surgirão nas versões seguintes do projeto.
 
-## Metodologias Ágeis
-No projeto, aplicarei diversos conhecimentos de metodologias agile como Scrum e Kanban para entregas
-mais rápidas e evolução constante do projeto.
-
-[![Escopo](https://user-images.githubusercontent.com/101483219/193663009-2f7556de-833f-4e36-8151-c45e908fa6d2.png)](https://user-images.githubusercontent.com/101483219/193663009-2f7556de-833f-4e36-8151-c45e908fa6d2.png)
-
 ## Mapa
 Na ilustração a seguir encontra-se o mapa da aplicação seguindo o modelo de Organogramas. Conforme alinhado
 no objetivo, o foco no primeiro momento é no funcionamento mais básico e crucial da aplicação.
